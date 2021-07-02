@@ -4,7 +4,9 @@ PDFREADER=evince
 dvi: all
 
 all:
-	pdflatex $(TARGET)
+	#pdflatex --draftmode $(TARGET)
+	#bibtex $(TARGET)
+	pdflatex --draftmode $(TARGET)
 	pdflatex $(TARGET)
 
 show: all
@@ -12,3 +14,6 @@ show: all
 
 spellcheck:
 	aspell -t -c $(TARGET).tex
+
+clean:
+	rm -rf *.aux *.toc *.bbl *.blg *.out *.log
